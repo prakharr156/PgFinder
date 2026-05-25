@@ -13,7 +13,7 @@ import UserRegistration from "./pages/UserRegistration";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPass from "./pages/ResetPass";
 import Success from "./pages/Success";
-import ErrorPage from "./pages/ErrorPage";
+import ErrorPage from "./pages/errorPage";
 
 import AdminLogin from "./pages/AdminLogin";
 import AdminRegistration from "./pages/AdminRegistration";
