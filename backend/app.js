@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const {port, databaseURL, sessionSecret} = require('./config.js');
+const {port, databaseURL, sessionSecret, baseURL} = require('./config.js');
 require('./utils/database_connect');
 const logins = require('./models/login');
 const session = require('express-session');
@@ -14,9 +14,17 @@ const {addRoleID} = require("./middlewares/common");
 const cron = require('node-cron');
 const {clientURL} = require('./config.js');
 
+const isProduction = process.env.NODE_ENV === 'production' || /^https:\/\//i.test(baseURL || '');
+const allowedOrigins = [
+    clientURL,
+    'http://localhost:5173',
+    'http://127.0.0.1:5173'
+].filter(Boolean);
+
 /* SERVER CONFIGURATIONS */
+app.set('trust proxy', 1);
 app.use(cors({
-    origin: [clientURL, 'http://127.0.0.1:5173'],
+    origin: allowedOrigins,
     credentials: true
 }));
 // app.options('*', cors({
@@ -47,7 +55,8 @@ app.use(session({
     cookie: {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7, // 1 week,
-        secure: false
+        sameSite: isProduction ? 'none' : 'lax',
+        secure: isProduction
     },
     store: store
 }));
