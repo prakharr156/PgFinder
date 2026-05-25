@@ -1,0 +1,225 @@
+/* registerProvider.css */
+
+.provider-form-page {
+  background: linear-gradient(180deg, #f5fafc 0%, #eef4f7 100%);
+  padding: 1rem 0 4rem;
+  min-height: 100vh;
+}
+
+.provider-form-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.provider-form-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(13, 110, 253, 0.08);
+  border-radius: 1.8rem;
+  box-shadow: 0 1.3rem 2.8rem rgba(31, 56, 88, 0.08);
+  overflow: hidden;
+}
+
+.provider-form-hero {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.96) 0%,
+    rgba(228, 241, 247, 0.96) 100%
+  );
+  padding: 2.25rem;
+  position: relative;
+}
+
+.provider-form-hero::before {
+  background: radial-gradient(
+    circle,
+    rgba(186, 220, 235, 0.42) 0%,
+    rgba(186, 220, 235, 0) 72%
+  );
+  content: "";
+  height: 16rem;
+  position: absolute;
+  right: -4rem;
+  top: -4rem;
+  width: 16rem;
+}
+
+.provider-form-hero-grid {
+  align-items: center;
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.9fr);
+  position: relative;
+  z-index: 1;
+}
+
+.provider-form-eyebrow {
+  color: #4c86a8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  margin-bottom: 0.8rem;
+  text-transform: uppercase;
+}
+
+.provider-form-hero h1 {
+  color: #163247;
+  font-size: clamp(2rem, 3.6vw, 3rem);
+  font-style: italic;
+  margin-bottom: 0.65rem;
+}
+
+.provider-form-hero p {
+  color: #597183;
+  margin: 0;
+  max-width: 40rem;
+}
+
+.provider-profile-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(76, 134, 168, 0.16);
+  border-radius: 1.6rem;
+  padding: 1.4rem;
+  text-align: center;
+}
+
+.provider-avatar {
+  aspect-ratio: 1;
+  border: 4px solid rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  box-shadow: 0 0.8rem 2rem rgba(31, 56, 88, 0.12);
+  height: 132px;
+  object-fit: cover;
+  width: 132px;
+}
+
+.provider-profile-card h2 {
+  color: #163247;
+  font-size: 1.2rem;
+  margin: 0.9rem 0 0.2rem;
+}
+
+.provider-profile-card p {
+  color: #5e7687;
+  margin: 0;
+}
+
+.provider-form-body {
+  padding: 2rem;
+}
+
+.provider-form-alert {
+  border: 1px solid #f2b8b5;
+  border-radius: 0.8rem;
+  color: #9f1c1c;
+  margin-bottom: 1.25rem;
+  padding: 0.85rem 1rem;
+  white-space: pre-line;
+}
+
+.provider-form-alert.success {
+  background: #edf8f0;
+  border-color: #a8ddb5;
+  color: #1f7a3b;
+}
+
+.provider-form-alert.error {
+  background: #fff4f3;
+}
+
+.provider-form-section + .provider-form-section {
+  margin-top: 2rem;
+}
+
+.provider-form-section h2 {
+  color: #163247;
+  font-size: 1.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.provider-form-section p {
+  color: #5e7687;
+  margin-bottom: 1.2rem;
+}
+
+.provider-form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.provider-form-grid.three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.provider-field {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.provider-field.full {
+  grid-column: 1 / -1;
+}
+
+.provider-field label {
+  color: #355166;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.provider-field input,
+.provider-field select {
+  background: #fbfdfe;
+  border: 1px solid #d9e6ee;
+  border-radius: 1rem;
+  min-height: 3.35rem;
+  padding: 0.8rem 1rem;
+  outline: none;
+  width: 100%;
+}
+
+.provider-field input:focus,
+.provider-field select:focus {
+  border-color: #4c86a8;
+}
+
+.provider-file-note {
+  color: #6b8393;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.provider-submit {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1.75rem;
+}
+
+.provider-submit button {
+  background: #0d6efd;
+  border: none;
+  border-radius: 999px;
+  color: white;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 0.8rem 1.5rem;
+  transition: 0.3s ease;
+}
+
+.provider-submit button:hover {
+  background: #0b5ed7;
+}
+
+@media (max-width: 991px) {
+  .provider-form-hero-grid,
+  .provider-form-grid,
+  .provider-form-grid.three {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 575px) {
+  .provider-form-hero,
+  .provider-form-body {
+    padding: 1.35rem;
+  }
+}

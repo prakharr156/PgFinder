@@ -1,0 +1,199 @@
+
+.hero-section {
+  padding: 2rem 0 4.5rem;
+}
+
+.hero-shell {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.9) 0%,
+    rgba(233, 243, 247, 0.95) 100%
+  );
+
+  border-radius: 2rem;
+  padding: 3.5rem;
+  box-shadow: 0 1.6rem 3rem rgba(31, 56, 88, 0.08);
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.7rem, 5vw, 4.5rem);
+  line-height: 1.08;
+}
+
+.hero-copy h1 span {
+  color: #2d7396;
+  font-style: italic;
+}
+
+.hero-copy p {
+  color: #5d7486;
+  line-height: 1.9;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.hero-primary-btn {
+  border-radius: 999px;
+  padding: 0.8rem 1.5rem;
+}
+
+.hero-visual-card {
+  background: linear-gradient(
+    160deg,
+    #dcecf4 0%,
+    #c0dce9 100%
+  );
+
+  border-radius: 1.75rem;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.about-section {
+  padding: 5rem 0;
+  background: #f8fbff;
+}
+
+.about-shell {
+  background: white;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.about-copy {
+  padding: 3rem;
+}
+
+.about-copy h2 {
+  font-size: clamp(2.25rem, 4vw, 3.4rem);
+}
+
+.about-points {
+  display: grid;
+  gap: 1rem;
+}
+
+.about-point {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background: #f7fafc;
+}
+
+.about-panel {
+  background: linear-gradient(
+    160deg,
+    #d9ebf3 0%,
+    #b8d9e7 100%
+  );
+
+  padding: 3rem;
+}
+
+.about-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.about-stat {
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.section-block {
+  padding: 5rem 0;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.feature-card {
+  background: white;
+  border-radius: 1.6rem;
+  padding: 1.6rem;
+  height: 100%;
+  box-shadow: 0 1.1rem 2.4rem rgba(31, 56, 88, 0.07);
+}
+
+.feature-icon {
+  width: 3.25rem;
+  height: 3.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e2f0f8;
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+}
+
+.team-section {
+  min-height: 80vh;
+  padding: 2rem 0;
+}
+
+.team-heading {
+  margin-top: 2rem;
+}
+
+.profile-card-3 {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  text-align: center;
+  height: 368px;
+  border: none;
+}
+
+.profile-card-3 .background-block {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.profile-card-3 .background {
+  width: 100%;
+  transform: scale(2.8);
+}
+
+.profile-card-3 .card-content {
+  background: #efefef;
+  height: 50%;
+  padding: 15px 25px;
+}
+
+.profile-card-3 .profile {
+  border-radius: 50%;
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  max-width: 100px;
+  transform: translate(-50%, 0%);
+}
+
+.icon-block {
+  margin-top: 15px;
+}
+
+.icon-block a {
+  text-decoration: none;
+}
+
+.icon-block i {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  border-radius: 50%;
+  border: 1px solid #232323;
+  margin: 0 5px;
+}

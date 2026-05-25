@@ -1,0 +1,11 @@
+
+.admin-details-divider {
+  height: 1px;
+  background-color: black;
+  opacity: 1;
+  border: 0;
+}
+
+.admin-details-table {
+  width: 100%;
+}

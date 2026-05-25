@@ -1,0 +1,39 @@
+
+/* errorPage.css */
+
+.errorSection {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  position: relative;
+
+  background: url("/images/error.jpg") center no-repeat;
+  background-size: cover;
+  background-blend-mode: color-burn;
+  background-color: #6c757d;
+}
+
+.errorCard {
+  position: absolute;
+  bottom: 25%;
+
+  padding: 20px 35px;
+  text-align: center;
+
+  background-color: #fff;
+  border: none;
+  border-radius: 0;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.errorCode {
+  font-size: 4rem;
+  margin-bottom: 10px;
+  color: #dc3545;
+}
+
+.errorMessage {
+  font-size: 2rem;
+  color: #212529;
+}

@@ -1,0 +1,150 @@
+@import "./pages/adminDashboard.css";
+@import "./pages/adminDetails.css";
+@import "./pages/adminLogin.css";
+@import "./pages/adminRegistration.css";
+@import "./pages/bookingCancel.css";
+@import "./pages/bookingDetails.css";
+@import "./pages/editPg.css";
+@import "./pages/errorPage.css";
+@import "./pages/forgotPassword.css";
+@import "./pages/home.css";
+@import "./pages/messagesInbox.css";
+@import "./pages/propertyPage.css";
+@import "./pages/providerDashboard.css";
+@import "./pages/registerPg.css";
+@import "./pages/registerProvider.css";
+@import "./pages/registerUser.css";
+@import "./pages/resetPass.css";
+@import "./pages/riderDashboard.css";
+@import "./pages/searchHome.css";
+@import "./pages/searchResult.css";
+@import "./pages/success.css";
+@import "./pages/terms.css";
+@import "./pages/updateProvider.css";
+@import "./pages/updateUser.css";
+@import "./pages/userLogin.css";
+@import "./pages/userRegistration.css";
+
+ .input-group,
+        .user-field .input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .input-group-text {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        body {
+            background: #f5fafc;
+            color: #18374d;
+        }
+
+        .site-header {
+            padding: 1rem 0 0;
+        }
+
+        .site-navbar {
+            background: rgba(255, 255, 255, 0.82) !important;
+            border: 1px solid rgba(13, 110, 253, 0.08);
+            border-radius: 1.5rem;
+            box-shadow: 0 1rem 2.5rem rgba(31, 56, 88, 0.08);
+            padding: 0.85rem 1.1rem;
+        }
+
+        .site-navbar .navbar-brand {
+            align-items: center;
+            display: inline-flex;
+            gap: 0.75rem;
+        }
+
+        .site-navbar .navbar-brand img {
+            filter: drop-shadow(0 0.45rem 0.85rem rgba(42, 103, 137, 0.12));
+        }
+
+        .site-navbar .navbar-toggler {
+            border: 1px solid rgba(13, 110, 253, 0.16);
+            border-radius: 1rem;
+            padding: 0.5rem 0.7rem;
+        }
+
+        .top-nav-links {
+            gap: 0.5rem;
+        }
+
+        .top-nav-links .nav-link {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(13, 110, 253, 0.16);
+            border-radius: 999px;
+            color: #18374d !important;
+            margin: 0.25rem 0;
+            padding: 0.45rem 0.9rem;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .top-nav-links .nav-link:hover,
+        .top-nav-links .nav-link:focus {
+            background-color: #2d7396;
+            border-color: #2d7396;
+            box-shadow: 0 0.75rem 1.2rem rgba(45, 115, 150, 0.16);
+            color: #fff !important;
+        }
+
+        .top-auth-link {
+            background: rgba(255, 255, 255, 0.65);
+            border: 1px solid rgba(13, 110, 253, 0.16);
+            border-radius: 999px;
+            color: #18374d !important;
+            margin: 0.25rem 0;
+            padding: 0.45rem 0.9rem;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .top-auth-link:hover,
+        .top-auth-link:focus {
+            background-color: #2d7396;
+            border-color: #2d7396;
+            box-shadow: 0 0.75rem 1.2rem rgba(45, 115, 150, 0.16);
+            color: #fff !important;
+            text-decoration: none;
+        }
+
+        .site-profile-link img {
+            border: 2px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0.8rem 1.4rem rgba(31, 56, 88, 0.12);
+        }
+
+        .site-footer {
+            padding-bottom: 1.25rem;
+        }
+
+        .site-footer-shell {
+            background: linear-gradient(180deg, rgba(232, 243, 248, 0.95) 0%, rgba(214, 232, 241, 0.95) 100%);
+            border: 1px solid rgba(13, 110, 253, 0.08);
+            border-radius: 2rem;
+            box-shadow: 0 1.3rem 2.8rem rgba(31, 56, 88, 0.08);
+            overflow: hidden;
+        }
+
+        .site-footer-main {
+            padding: 2.5rem 0 1.5rem;
+        }
+
+        .site-footer-links a {
+            color: #163247;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .site-footer-links a:hover,
+        .site-footer-links a:focus {
+            color: #2d7396;
+        }
+
+        .site-footer-bottom {
+            background: rgba(255, 255, 255, 0.42);
+            border-top: 1px solid rgba(13, 110, 253, 0.08);
+            color: #365166;
+        }

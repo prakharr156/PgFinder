@@ -1,0 +1,123 @@
+.pg-form-page {
+    background: linear-gradient(180deg, #f5fafc 0%, #eef4f7 100%);
+    padding: 1rem 0 4rem;
+}
+
+.pg-form-shell {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.pg-form-card {
+    background: rgba(255, 255, 255, 0.92);
+    border: 1px solid rgba(13, 110, 253, 0.08);
+    border-radius: 1.8rem;
+    box-shadow: 0 1.3rem 2.8rem rgba(31, 56, 88, 0.08);
+    overflow: hidden;
+}
+
+.pg-form-hero {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.96) 0%,
+        rgba(228, 241, 247, 0.96) 100%
+    );
+
+    padding: 2.25rem;
+}
+
+.pg-form-hero-grid {
+    display: grid;
+    grid-template-columns: 1.8fr 0.9fr;
+    gap: 1.5rem;
+}
+
+.pg-form-eyebrow {
+    color: #4c86a8;
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.pg-form-hero h1 {
+    color: #163247;
+    font-size: 2.5rem;
+    margin-bottom: 0.6rem;
+}
+
+.pg-hero-stat {
+    background: white;
+    border-radius: 1.5rem;
+    padding: 1.4rem;
+}
+
+.pg-form-body {
+    padding: 2rem;
+}
+
+.pg-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.pg-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pg-field.full {
+    grid-column: 1 / -1;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #d9e6ee;
+    border-radius: 1rem;
+    padding: 0.9rem 1rem;
+}
+
+.pg-chip-group {
+    margin-top: 1.5rem;
+}
+
+.pg-chip-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.pg-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    background: #f8fbfd;
+
+    border: 1px solid rgba(76, 134, 168, 0.14);
+
+    border-radius: 999px;
+
+    padding: 0.7rem 1rem;
+}
+
+.pg-submit {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pg-submit button {
+    border-radius: 999px;
+    padding: 0.8rem 1.5rem;
+}
+
+@media (max-width: 768px) {
+
+    .pg-form-grid,
+    .pg-form-hero-grid {
+        grid-template-columns: 1fr;
+    }
+}
