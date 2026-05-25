@@ -123,6 +123,7 @@ const BookingDetails = ({ property: initialProperty }) => {
         },
         {
           withCredentials: true,
+          timeout: 20000,
         }
       );
 
@@ -139,6 +140,9 @@ const BookingDetails = ({ property: initialProperty }) => {
       showAlert(
         "error",
         err.response?.data?.error ||
+          (err.code === "ECONNABORTED"
+            ? "OTP email is taking too long. Please try again in a moment."
+            : "") ||
           "Could not verify booking details."
       );
     } finally {
@@ -382,7 +386,7 @@ const BookingDetails = ({ property: initialProperty }) => {
                     disabled={loadingOtp}
                   >
                     {loadingOtp
-                      ? "Checking availability..."
+                      ? "Checking availability and sending OTP..."
                       : "Check Availability And Send OTP"}
                   </button>
 

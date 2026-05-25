@@ -2,7 +2,12 @@ const {emailAdd, appPass, serverURL} = require('../config');
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-	service: 'gmail',
+	// service: 'gmail',
+	 host: 'smtp.gmail.com',
+    port: 587,
+	connectionTimeout: 10000,
+	greetingTimeout: 10000,
+	socketTimeout: 15000,
 	auth: {
 		user: emailAdd,
 		pass: appPass
