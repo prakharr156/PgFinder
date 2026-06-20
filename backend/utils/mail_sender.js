@@ -2,7 +2,7 @@ const {emailAdd, appPass, serverURL} = require('../config');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 
-const resendApiKey = process.env.RESEND_API_KEY;
+const brevoApiKey = process.env.BREVO_API_KEY;
 const emailFrom = process.env.EMAIL_FROM || emailAdd;
 
 const transporter = nodemailer.createTransport({
@@ -18,18 +18,18 @@ const transporter = nodemailer.createTransport({
 
 async function sendMail(mailOptions) {
 	try {
-		if (resendApiKey) {
+		if (brevoApiKey) {
 			const response = await axios.post(
-				'https://api.resend.com/emails',
+				'https://api.brevo.com/v3/smtp/email',
 				{
-					from: emailFrom,
-					to: mailOptions.to,
+					sender: { email: emailFrom, name: 'StayVista' },
+					to: [{ email: mailOptions.to }],
 					subject: mailOptions.subject,
-					html: mailOptions.html
+					htmlContent: mailOptions.html
 				},
 				{
 					headers: {
-						Authorization: `Bearer ${resendApiKey}`,
+						'api-key': brevoApiKey,
 						'Content-Type': 'application/json'
 					},
 					timeout: 15000
