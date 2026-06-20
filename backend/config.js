@@ -3,8 +3,8 @@ require('dotenv').config({path: path.join(__dirname, 'secret.env')});
 
 module.exports = {
 	databaseURL: process.env.DATABASE_URL,
-	baseURL: process.env.BASE_URL,
-	clientURL: process.env.CLIENT_URL || 'http://localhost:5173',
+	baseURL: (process.env.BASE_URL || '').replace(/\/$/, ''),
+	clientURL: (process.env.CLIENT_URL || 'http://localhost:5173').replace(/\/$/, ''),
 	emailAdd: process.env.EMAIL_ADDRESS,
 	appPass: process.env.APP_PASSCODE,
 	port: process.env.PORT || 3000,
@@ -16,5 +16,5 @@ module.exports = {
 	adminKey: process.env.ADMIN_KEY,
 	razorpayKeyID: process.env.RAZORPAY_KEY_ID,
 	razorpayKeySecret: process.env.RAZORPAY_KEY_SECRET,
-	serverURL: process.env.BASE_URL,
+	serverURL: (process.env.BASE_URL || '').replace(/\/$/, ''),
 };
