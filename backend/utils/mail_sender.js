@@ -36,6 +36,9 @@ async function sendMail(mailOptions) {
 				}
 			);
 
+			console.log("[Brevo] Email sent to:", mailOptions.to);
+			console.log("[Brevo] Response:", JSON.stringify(response.data));
+			console.log("[Brevo] Status:", response.status);
 			return response.data;
 		}
 
