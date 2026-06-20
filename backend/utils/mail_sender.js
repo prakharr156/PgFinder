@@ -1,18 +1,42 @@
 const {emailAdd, appPass, serverURL} = require('../config');
+const axios = require('axios');
 const nodemailer = require('nodemailer');
 
+const resendApiKey = process.env.RESEND_API_KEY;
+const emailFrom = process.env.EMAIL_FROM || emailAdd;
+
 const transporter = nodemailer.createTransport({
-	// service: 'gmail',
-	 host: 'smtp.gmail.com',
-    port: 587,
-	connectionTimeout: 10000,
-	greetingTimeout: 10000,
-	socketTimeout: 15000,
+	service: 'gmail',
 	auth: {
 		user: emailAdd,
 		pass: appPass
 	}
 });
+
+async function sendMail(mailOptions) {
+	if (resendApiKey) {
+		const response = await axios.post(
+			'https://api.resend.com/emails',
+			{
+				from: emailFrom,
+				to: mailOptions.to,
+				subject: mailOptions.subject,
+				html: mailOptions.html
+			},
+			{
+				headers: {
+					Authorization: `Bearer ${resendApiKey}`,
+					'Content-Type': 'application/json'
+				},
+				timeout: 15000
+			}
+		);
+
+		return response.data;
+	}
+
+	return await transporter.sendMail(mailOptions);
+}
 
 function renderList(items) {
 	return items.map(item => `<li style="margin-bottom:8px;">${item}</li>`).join('');
@@ -516,7 +540,7 @@ async function sendRegistrationEmail(recipientAddress, validationKey) {
 		html: createValidationEmail(validationKey, recipientAddress),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingSuccessEmail(recipientAddress, details) {
@@ -527,7 +551,7 @@ async function sendBookingSuccessEmail(recipientAddress, details) {
 		html: createBookingSuccessEmail(details),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingFailEmail(recipientAddress, details) {
@@ -538,7 +562,7 @@ async function sendBookingFailEmail(recipientAddress, details) {
 		html: createBookingFailEmail(details),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendForgotPasswordEmail(recipientAddress, key) {
@@ -549,7 +573,7 @@ async function sendForgotPasswordEmail(recipientAddress, key) {
 		html: createForgotPasswordEmail(key),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendPasswordChangeEmail(recipientAddress) {
@@ -560,7 +584,7 @@ async function sendPasswordChangeEmail(recipientAddress) {
 		html: createPasswordChangedEmail(),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingOtpEmail(recipientAddress, details) {
@@ -571,7 +595,7 @@ async function sendBookingOtpEmail(recipientAddress, details) {
 		html: createBookingOtpEmail(details),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingFinalSuccessEmail(recipientAddress, content) {
@@ -582,7 +606,7 @@ async function sendBookingFinalSuccessEmail(recipientAddress, content) {
 		html: createBookingFinalSuccessEmail(content),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingFinalFailEmail(recipientAddress, content) {
@@ -593,7 +617,7 @@ async function sendBookingFinalFailEmail(recipientAddress, content) {
 		html: createBookingFinalFailEmail(content),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingCancellationEmailForRider(recipientAddress, content) {
@@ -604,7 +628,7 @@ async function sendBookingCancellationEmailForRider(recipientAddress, content) {
 		html: createBookingCancellationEmailForRider(content),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 async function sendBookingCancellationEmailForProvider(recipientAddress, content) {
@@ -615,7 +639,7 @@ async function sendBookingCancellationEmailForProvider(recipientAddress, content
 		html: createBookingCancellationEmailForProvider(content),
 	};
 
-	return await transporter.sendMail(mailOptions);
+	return await sendMail(mailOptions);
 }
 
 module.exports = {
