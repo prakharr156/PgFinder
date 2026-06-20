@@ -7,9 +7,9 @@ const emailFrom = process.env.EMAIL_FROM || emailAdd;
 
 const transporter = nodemailer.createTransport({
 	service: 'gmail',
-	connectionTimeout: 45000,
-	greetingTimeout: 30000,
-	socketTimeout: 45000,
+	connectionTimeout: 5000,
+	greetingTimeout: 5000,
+	socketTimeout: 5000,
 	auth: {
 		user: emailAdd,
 		pass: appPass
