@@ -18,13 +18,40 @@ const isProduction = process.env.NODE_ENV === 'production' || /^https:\/\//i.tes
 const allowedOrigins = [
     clientURL,
     'http://localhost:5173',
-    'http://127.0.0.1:5173'
+    'http://127.0.0.1:5173',
+    'http://[::1]:5173'
 ].filter(Boolean);
+
+function isAllowedOrigin(origin) {
+    if (!origin)
+        return true;
+
+    if (allowedOrigins.includes(origin))
+        return true;
+
+    // Allow any Render subdomain deployment
+    if (origin.endsWith('.onrender.com'))
+        return true;
+
+    try {
+        const {hostname, protocol} = new URL(origin);
+        const isLocalDevHost = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '[::1]';
+
+        return !isProduction && protocol === 'http:' && isLocalDevHost;
+    } catch (e) {
+        return false;
+    }
+}
 
 /* SERVER CONFIGURATIONS */
 app.set('trust proxy', 1);
 app.use(cors({
-    origin: allowedOrigins,
+    origin(origin, callback) {
+        if (isAllowedOrigin(origin))
+            return callback(null, true);
+
+        return callback(new Error(`Origin ${origin} is not allowed by CORS`));
+    },
     credentials: true
 }));
 // app.options('*', cors({
