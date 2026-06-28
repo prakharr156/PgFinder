@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import "./bookingDetails.css";
 
 const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:3000";
+const OTP_REQUEST_TIMEOUT_MS = 60000;
 
 const loadRazorpayCheckout = () =>
   new Promise((resolve, reject) => {
@@ -123,7 +124,7 @@ const BookingDetails = ({ property: initialProperty }) => {
         },
         {
           withCredentials: true,
-          timeout: 20000,
+          timeout: OTP_REQUEST_TIMEOUT_MS,
         }
       );
 
@@ -141,7 +142,7 @@ const BookingDetails = ({ property: initialProperty }) => {
         "error",
         err.response?.data?.error ||
           (err.code === "ECONNABORTED"
-            ? "OTP email is taking too long. Please try again in a moment."
+            ? "OTP email is still taking too long. Please try again in a moment."
             : "") ||
           "Could not verify booking details."
       );

@@ -15,6 +15,10 @@ function fetchTopProperties () {
 			}
 		}));
 
+		const dir = path.dirname(top_property_path);
+		if (!fs.existsSync(dir)) {
+			fs.mkdirSync(dir, { recursive: true });
+		}
 		fs.writeFile(top_property_path, modifiedData, { flag: 'w' }, (err) => {
 			if (err)
 				console.log(err)

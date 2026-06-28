@@ -2,7 +2,7 @@ const {emailAdd, appPass, serverURL} = require('../config');
 const axios = require('axios');
 const nodemailer = require('nodemailer');
 
-const brevoApiKey = process.env.BREVO_API_KEY;
+const brevoApiKey = process.env.BREVO_API_KEY && !process.env.BREVO_API_KEY.includes('YOUR_BREVO_API_KEY_HERE') ? process.env.BREVO_API_KEY : null;
 const emailFrom = process.env.EMAIL_FROM || emailAdd;
 
 const transporter = nodemailer.createTransport({

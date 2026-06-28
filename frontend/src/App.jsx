@@ -311,6 +311,7 @@ function App() {
           <Route path="/register" element={<Navigate to="/auth/registration" replace />} />
 
           <Route path="/booking/:propertyID/new" element={<BookingDetails />} />
+          <Route path="/booking/:propertyID/newOTP" element={<BookingDetails />} />
           <Route path="/booking/:id/cancel" element={<BookingCancel />} />
           <Route path="/messages" element={<MessagesInbox />} />
           <Route path="/messages/property/:propertyID" element={<MessagesInbox />} />
